@@ -1,6 +1,6 @@
 const { gql } = require('apollo-server-express');
 
-const LOGIN = gql`
+export const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
@@ -22,7 +22,7 @@ const LOGIN = gql`
   }
 `;
 
-const ADD_USER = gql`
+export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
       token
@@ -44,7 +44,7 @@ const ADD_USER = gql`
   }
 `;
 
-const SAVE_BOOK = gql`
+export const SAVE_BOOK = gql`
   mutation saveBook(
     $authors: [String]
     $description: String!
@@ -77,7 +77,7 @@ const SAVE_BOOK = gql`
   }
 `;
 
-const REMOVE_BOOK = gql`
+export const REMOVE_BOOK = gql`
   mutation removeBook($bookId: String!) {
     removeBook(bookId: $bookId) {
       _id
@@ -95,5 +95,3 @@ const REMOVE_BOOK = gql`
     }
   }
 `;
-
-module.exports = { LOGIN, ADD_USER, SAVE_BOOK, REMOVE_BOOK };
